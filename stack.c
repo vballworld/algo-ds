@@ -7,6 +7,9 @@ dynamically resizing array-based stack implementation
 #include <assert.h>
 #include "stack.h"
 
+/*push elem to stack; array doubles in size when
+stack is half-full
+*/
 void push(arrayStack_t* s, int val)
 {
     assert(s->size < s->capacity);  //array should resize proactively when it is half full
