@@ -1,5 +1,7 @@
 /*
 dynamically resizing array-based stack implementation
+current implementation does not support dynamic size reduction
+only dynamic size increase is supported
 */
 
 #include <stdio.h>
@@ -26,6 +28,9 @@ void push(arrayStack_t* s, int val)
     }
 }
 
+/*pop elem from stack; return 0 if stack
+is already empty
+*/
 int pop(arrayStack_t* s)
 {
     if (s->size == 0)
@@ -40,16 +45,22 @@ int pop(arrayStack_t* s)
     return popVal;
 }
 
+/*return size (number of elems in stack)
+*/
 int size(arrayStack_t* s)
 {
     return s->size;
 }
 
+/*return top elem in stack
+*/
 int top(arrayStack_t* s)
 {
     return s->stack[s->size - 1];
 }
 
+/*return true if stack is empty, false otherwise
+*/
 bool isEmpty(arrayStack_t* s)
 {
     if (s->size == 0)
@@ -62,6 +73,8 @@ bool isEmpty(arrayStack_t* s)
     }
 }
 
+/*print all elems in stack
+*/
 void printStack(arrayStack_t* s)
 {
     for (int i = 0 ; i < s->size; i++)
@@ -71,6 +84,8 @@ void printStack(arrayStack_t* s)
     printf("\n");
 }
 
+/*return stack that can store capacity number of int elems
+*/
 arrayStack_t* initStack(int capacity)
 {
     arrayStack_t* s = (arrayStack_t*)malloc(sizeof(arrayStack_t));
