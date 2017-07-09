@@ -14,13 +14,13 @@ typedef struct arrayStack_t
     int* stack;
 } arrayStack_t;
 
-arrayStack_t* initStack(int capacity);
+arrayStack_t* stack_init(int capacity);
 
-void push(arrayStack_t* s, int val);
-int pop(arrayStack_t* s);
-int size(arrayStack_t* s);
-int top(arrayStack_t* s);
-bool isEmpty(arrayStack_t* s);
-void printStack(arrayStack_t* s);
+void stack_push(arrayStack_t* s, int val);
+int stack_pop(arrayStack_t* s);
+int stack_size(arrayStack_t* s);
+int stack_top(arrayStack_t* s);
+bool stack_isEmpty(arrayStack_t* s);
+void stack_print(arrayStack_t* s);
 
 #endif /* stack_h */

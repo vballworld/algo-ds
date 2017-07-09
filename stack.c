@@ -11,7 +11,7 @@ only dynamic size increase is supported
 
 /*return stack that can store capacity number of int elems
 */
-arrayStack_t* initStack(int capacity)
+arrayStack_t* stack_init(int capacity)
 {
     arrayStack_t* s = (arrayStack_t*)malloc(sizeof(arrayStack_t));
     s->size = 0;
@@ -24,7 +24,7 @@ arrayStack_t* initStack(int capacity)
 /*push elem to stack; array doubles in size when
 stack is half-full
 */
-void push(arrayStack_t* s, int val)
+void stack_push(arrayStack_t* s, int val)
 {
     assert(s->size < s->capacity);  //array should resize proactively when it is half full
 
@@ -43,7 +43,7 @@ void push(arrayStack_t* s, int val)
 /*pop elem from stack; return 0 if stack
 is already empty
 */
-int pop(arrayStack_t* s)
+int stack_pop(arrayStack_t* s)
 {
     if (s->size == 0)
     {
@@ -59,21 +59,21 @@ int pop(arrayStack_t* s)
 
 /*return size (number of elems in stack)
 */
-int size(arrayStack_t* s)
+int stack_size(arrayStack_t* s)
 {
     return s->size;
 }
 
 /*return top elem in stack
 */
-int top(arrayStack_t* s)
+int stack_top(arrayStack_t* s)
 {
     return s->stack[s->size - 1];
 }
 
 /*return true if stack is empty, false otherwise
 */
-bool isEmpty(arrayStack_t* s)
+bool stack_isEmpty(arrayStack_t* s)
 {
     if (s->size == 0)
     {
@@ -87,7 +87,7 @@ bool isEmpty(arrayStack_t* s)
 
 /*print all elems in stack
 */
-void printStack(arrayStack_t* s)
+void stack_print(arrayStack_t* s)
 {
     for (int i = 0 ; i < s->size; i++)
     {
