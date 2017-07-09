@@ -9,6 +9,18 @@ only dynamic size increase is supported
 #include <assert.h>
 #include "stack.h"
 
+/*return stack that can store capacity number of int elems
+*/
+arrayStack_t* initStack(int capacity)
+{
+    arrayStack_t* s = (arrayStack_t*)malloc(sizeof(arrayStack_t));
+    s->size = 0;
+    s->capacity = capacity;
+    s->stack = (int*)malloc(sizeof(int) * capacity);
+
+    return s;
+}
+
 /*push elem to stack; array doubles in size when
 stack is half-full
 */
@@ -84,14 +96,4 @@ void printStack(arrayStack_t* s)
     printf("\n");
 }
 
-/*return stack that can store capacity number of int elems
-*/
-arrayStack_t* initStack(int capacity)
-{
-    arrayStack_t* s = (arrayStack_t*)malloc(sizeof(arrayStack_t));
-    s->size = 0;
-    s->capacity = capacity;
-    s->stack = (int*)malloc(sizeof(int) * capacity);
 
-    return s;
-}
