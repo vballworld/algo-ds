@@ -1,5 +1,5 @@
 /*
- binary tree implementation
+ binary search tree implementation
  */
 
 #include <stdlib.h>
@@ -9,6 +9,8 @@
  */
 static tree_node_t* tree_initNode(int val);
 
+/*return tree whose root has value val
+ */
 tree_t* tree_init(int val)
 {
     tree_t* t = (tree_t*)malloc(sizeof(tree_t));
@@ -17,6 +19,8 @@ tree_t* tree_init(int val)
     return t;
 }
 
+/*return a tree node that has value val
+ */
 static tree_node_t* tree_initNode(int val)
 {
     tree_node_t* n = (tree_node_t*)malloc(sizeof(tree_node_t));
@@ -27,7 +31,9 @@ static tree_node_t* tree_initNode(int val)
     return n;
 }
 
-void tree_add(tree_node_t* root, int val)
+/*recursively insert node into BST
+ */
+void tree_insert(tree_node_t* root, int val)
 {
     if (val <= root->val)
     {
@@ -37,7 +43,7 @@ void tree_add(tree_node_t* root, int val)
         }
         else
         {
-            tree_add(root->left, val);
+            tree_insert(root->left, val);
         }
     }
     else
@@ -48,12 +54,13 @@ void tree_add(tree_node_t* root, int val)
         }
         else
         {
-            tree_add(root->right, val);
+            tree_insert(root->right, val);
         }
     }
 }
 
-
+/*print tree in pre-order
+ */
 void tree_preOrder(tree_node_t* root)
 {
     if (root == NULL)
@@ -67,6 +74,8 @@ void tree_preOrder(tree_node_t* root)
     tree_preOrder(root->right);
 }
 
+/*print tree in-order
+ */
 void tree_inOrder(tree_node_t* root)
 {
     if (root == NULL)
@@ -79,6 +88,8 @@ void tree_inOrder(tree_node_t* root)
     tree_inOrder(root->right);
 }
 
+/*print tree in post-order
+ */
 void tree_postOrder(tree_node_t* root)
 {
     if (root == NULL)

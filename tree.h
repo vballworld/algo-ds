@@ -1,5 +1,5 @@
 /*
- binary tree implementation
+ binary search tree implementation
  */
 
 #ifndef tree_h
@@ -20,7 +20,7 @@ typedef struct tree_t
 } tree_t;
 
 tree_t* tree_init(int val);
-void tree_add(tree_node_t* root, int val);
+void tree_insert(tree_node_t* root, int val);
 
 void tree_preOrder(tree_node_t* root);
 void tree_inOrder(tree_node_t* root);
