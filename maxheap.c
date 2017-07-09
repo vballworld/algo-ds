@@ -119,18 +119,3 @@ void maxheap_print(maxheap_t* h)
     printf("\n");
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
